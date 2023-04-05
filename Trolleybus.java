@@ -4,18 +4,24 @@ import lombok.*;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@ToString
-public class Trolleybus {
-    private int id = 100;
+@ToString(callSuper = true)
+public class Trolleybus extends Transport {
     private int routeNumber;
     private String currentStop;
-    private int maxSpeed;
     private int speed;
     private int capacity;
     private int passengers;
     private static Trolleybus instance;
+
+    public Trolleybus(int id, int maxSpeed, String plateNumber, int routeNumber, String currentStop, int speed, int capacity, int passengers) {
+        super(id, maxSpeed, plateNumber);
+        this.routeNumber = routeNumber;
+        this.currentStop = currentStop;
+        this.speed = speed;
+        this.capacity = capacity;
+        this.passengers = passengers;
+    }
 
 
     public static Trolleybus getInstance() {
@@ -30,9 +36,15 @@ public class Trolleybus {
         speed = 0;
     }
 
+    @Override
+    public void accelerate(int speed) {
+        this.speed += speed;
+    }
+
     public void start() {
         speed = 20;
     }
+
     public void addPassenger(String passenger) {
         if (passengers < capacity) {
             passengers++;
@@ -42,17 +54,6 @@ public class Trolleybus {
     public void removePassenger(String passenger) {
         if (passengers > 0) {
             passengers--;
-        }
-    }
-    public static void main(String... args) {
-        Trolleybus[] trolleybuses = {new Trolleybus(),
-                new Trolleybus(101, 22, "Stop N34", 60, 30, 20, 5),
-                Trolleybus.getInstance(),
-                Trolleybus.getInstance(),
-        };
-
-        for(Trolleybus trolleybus : trolleybuses){
-            System.out.println(trolleybus);
         }
     }
 }
