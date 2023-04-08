@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.laba1;
+package org.example;
 
 import lombok.*;
 
@@ -7,9 +7,9 @@ import lombok.*;
 @NoArgsConstructor
 @ToString(callSuper = true)
 public class Car extends Transport {
-    int numberOfDoors;
-    int trunkVolume;
-    int maxLoad;
+    private int numberOfDoors;
+    private int trunkVolume;
+    private int maxLoad;
 
     public Car(int id, int maxSpeed, String plateNumber, int numberOfDoors, int trunkVolume, int maxLoad) {
         super(id, maxSpeed, plateNumber);
