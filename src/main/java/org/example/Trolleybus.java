@@ -30,9 +30,6 @@ public class Trolleybus extends Transport {
         }
         return instance;
     }
-    public Trolleybus getInternalRepresentation() {
-        return instance;
-    }
     public void stop() {
         System.out.println("Stopped at " + currentStop);
         speed = 0;
