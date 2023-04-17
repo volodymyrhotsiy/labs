@@ -1,0 +1,6 @@
+id,maxSpeed,plateNumber,numberOfDoors,trunkVolume,maxLoad
+1, 200, ABC123, 2, 12, 10
+2, 250, DEF456, 4, 20, 20
+id,maxSpeed,plateNumber,speed,frameSize,numberOfGears,color,hasBasket
+3, 100, GHI789, 50, 17, 6, blue, true
+4, 120, JKL012, 55, 18, 7, green, false

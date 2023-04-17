@@ -3,6 +3,8 @@ package org.example;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.lang.reflect.Field;
+
 import static org.junit.Assert.*;
 
 public class TrolleybusTests {
@@ -37,3 +39,4 @@ public class TrolleybusTests {
         assertEquals(11, trolleybus.getPassengers());
     }
 }
+
