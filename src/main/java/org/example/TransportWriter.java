@@ -7,23 +7,24 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class TransportWriter {
-    public void writeToFile(List<Transport> transports) throws FileNotFoundException {
-        File csvFile = new File("transport.csv");
-        PrintWriter out = new PrintWriter(csvFile);
+    public void writeToFile(List<Transport> transports) {
+        try(PrintWriter out = new PrintWriter(new File("transport.csv"))){
+            Map<Class<? extends Transport>, String> headers = new HashMap<>();
 
-        Map<Class<? extends Transport>, String> headers = new HashMap<>();
-
-        for (Transport transport : transports) {
-            Class<? extends Transport> cls = transport.getClass();
-            if (!headers.containsKey(cls)) {
-                String header = transport.getHeaders();
-                headers.put(cls, header);
-                out.println(header);
+            for (Transport transport : transports) {
+                Class<? extends Transport> cls = transport.getClass();
+                if (!headers.containsKey(cls)) {
+                    String header = transport.getHeaders();
+                    headers.put(cls, header);
+                    out.println(header);
+                }
+                out.println(transport.getFieldValues());
             }
-            out.println(transport.getFieldValues());
         }
-
-        out.close();
+        catch(FileNotFoundException e){
+            System.out.println("exeption");
+        }
     }
 }

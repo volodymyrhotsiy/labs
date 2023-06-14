@@ -11,7 +11,7 @@ public class TestUnits {
             while (scanner.hasNextLine()) {
                 contentBuilder.append(scanner.nextLine()).append("\n");
             }
-        } catch (FileNotFoundException e) {
+        } catch ( FileNotFoundException e) {
             e.printStackTrace();
         }
         return contentBuilder.toString();

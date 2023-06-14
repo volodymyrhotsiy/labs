@@ -72,7 +72,7 @@ class TransportWriterTest {
                 "2, 250, DEF456, 4, 20, 20"+"\n"+
                 "id,maxSpeed,plateNumber,speed,frameSize,numberOfGears,color,hasBasket"+"\n"+
                 "3, 100, GHI789, 50, 17, 6, blue, true"+"\n"+
-                "4, 120, JKL012, 55, 18, 7, green, false";
+                "4, 120, JKL012, 55, 18, 7, green, false\n";
 
         Assertions.assertEquals(expectedLines, actualContent);
     }
