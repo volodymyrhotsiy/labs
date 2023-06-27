@@ -1,9 +1,8 @@
-package ua.lviv.iot.algo.part1.laba1;
-
-import java.util.Comparator;
-import java.util.List;
+package org.example;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 
 
@@ -11,7 +10,11 @@ public class TransportManager {
     private ArrayList<Transport> transports;
 
     public TransportManager() {
-        this.transports = new ArrayList<Transport>();
+        this.transports = new ArrayList<>();
+    }
+
+    public List<Transport> getTransports() {
+        return this.transports;
     }
 
     public void addTransport(Transport transport) {
@@ -19,22 +22,20 @@ public class TransportManager {
     }
 
     public List<Transport> findAllTransportsWithMaxSpeedGraterThen(int speed) {
-        List<Transport> filteredTransports = this.transports.stream()
+        return this.transports.stream()
                 .filter(transport -> transport.getMaxSpeed() > speed)
                 .collect(Collectors.toList());
-        return filteredTransports;
     }
 
     public List<Transport> sortTransportsPlatesAlphabetically() {
-        List<Transport> filteredTransports = this.transports.stream()
+        return this.transports.stream()
                 .sorted(Comparator.comparing(transport ->
                         transport.getPlateNumber() == null ? "" : transport.getPlateNumber()))
                 .collect(Collectors.toList());
-        return filteredTransports;
     }
 
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         TransportManager transportManager = new TransportManager();
         transportManager.addTransport(new Trolleybus());
         transportManager.addTransport(new Trolleybus(112, 60, "FVH 562", 22, "stop1", 30, 40, 12));

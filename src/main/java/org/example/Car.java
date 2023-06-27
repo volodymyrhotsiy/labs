@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.laba1;
+package org.example;
 
 import lombok.*;
 
