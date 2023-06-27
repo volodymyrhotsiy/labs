@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public class TransportManager {
+public class
+TransportManager {
     private ArrayList<Transport> transports;
 
     public TransportManager() {
